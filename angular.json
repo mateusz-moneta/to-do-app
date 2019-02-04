@@ -2,7 +2,131 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "to-do-app": {
+      "root": "apps/to-do-app/",
+      "sourceRoot": "apps/to-do-app/src",
+      "projectType": "application",
+      "prefix": "to-do-app",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/to-do-app",
+            "index": "apps/to-do-app/src/index.html",
+            "main": "apps/to-do-app/src/main.ts",
+            "polyfills": "apps/to-do-app/src/polyfills.ts",
+            "tsConfig": "apps/to-do-app/tsconfig.app.json",
+            "assets": [
+              "apps/to-do-app/src/favicon.ico",
+              "apps/to-do-app/src/assets"
+            ],
+            "styles": ["apps/to-do-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/to-do-app/src/environments/environment.ts",
+                  "with": "apps/to-do-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "to-do-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "to-do-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "to-do-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/to-do-app/src/test.ts",
+            "polyfills": "apps/to-do-app/src/polyfills.ts",
+            "tsConfig": "apps/to-do-app/tsconfig.spec.json",
+            "karmaConfig": "apps/to-do-app/karma.conf.js",
+            "styles": ["apps/to-do-app/src/styles.scss"],
+            "scripts": [],
+            "assets": [
+              "apps/to-do-app/src/favicon.ico",
+              "apps/to-do-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/to-do-app/tsconfig.app.json",
+              "apps/to-do-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "to-do-app-e2e": {
+      "root": "apps/to-do-app-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/to-do-app-e2e/protractor.conf.js",
+            "devServerTarget": "to-do-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "to-do-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/to-do-app-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
@@ -18,5 +142,6 @@
     "@nrwl/schematics:library": {
       "style": "scss"
     }
-  }
+  },
+  "defaultProject": "to-do-app"
 }

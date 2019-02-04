@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "to-do-app": {
+      "tags": []
+    },
+    "to-do-app-e2e": {
+      "tags": []
+    }
+  }
 }
