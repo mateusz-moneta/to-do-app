@@ -1,0 +1,46 @@
+@import '~material-icons/iconfont/material-icons.css';
+@import '~@angular/material/theming';
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-indigo);
+$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-deep-orange);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+//@include mat-core-theme($my-app-theme);
+//@include mat-autocomplete-theme($my-app-theme);
+//@include mat-badge-theme($my-app-theme);
+//@include mat-bottom-sheet-theme($my-app-theme);
+@include mat-button-theme($my-app-theme);
+//@include mat-button-toggle-theme($my-app-theme);
+//@include mat-card-theme($my-app-theme);
+//@include mat-checkbox-theme($my-app-theme);
+//@include mat-chips-theme($my-app-theme);
+//@include mat-table-theme($my-app-theme);
+//@include mat-datepicker-theme($my-app-theme);
+//@include mat-dialog-theme($my-app-theme);
+@include mat-divider-theme($my-app-theme);
+//@include mat-expansion-panel-theme($my-app-theme);
+@include mat-form-field-theme($my-app-theme);
+//@include mat-grid-list-theme($my-app-theme);
+@include mat-icon-theme($my-app-theme);
+@include mat-input-theme($my-app-theme);
+@include mat-list-theme($my-app-theme);
+//@include mat-menu-theme($my-app-theme);
+//@include mat-paginator-theme($my-app-theme);
+//@include mat-progress-bar-theme($my-app-theme);
+//@include mat-progress-spinner-theme($my-app-theme);
+//@include mat-radio-theme($my-app-theme);
+//@include mat-select-theme($my-app-theme);
+//@include mat-sidenav-theme($my-app-theme);
+//@include mat-slide-toggle-theme($my-app-theme);
+//@include mat-slider-theme($my-app-theme);
+//@include mat-stepper-theme($my-app-theme);
+//@include mat-sort-theme($my-app-theme);
+//@include mat-tabs-theme($my-app-theme);
+//@include mat-toolbar-theme($my-app-theme);
+//@include mat-tooltip-theme($my-app-theme);
+//@include mat-tree-theme($my-app-theme);
+//@include mat-snack-bar-theme($my-app-theme);
+

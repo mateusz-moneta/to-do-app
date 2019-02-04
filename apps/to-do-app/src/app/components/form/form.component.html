@@ -1,0 +1,16 @@
+<header class="row">
+  <h1>To do list</h1>
+</header>
+<div class="row">
+  <form class="form-container" [formGroup]="addTodoForm" (ngSubmit)="onAddTodo()">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Todo!</button>
+  </form>
+</div>
