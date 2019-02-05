@@ -12,7 +12,9 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@to-do-app/data-access-todo": ["libs/data-access-todo/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

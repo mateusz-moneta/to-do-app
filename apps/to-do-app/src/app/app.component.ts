@@ -1,21 +1,26 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Todo } from './interfaces/todo.interface';
+import { TodoFacade } from '@to-do-app/data-access-todo';
 
 @Component({
   selector: 'to-do-app-root',
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
 
-  todoList: Todo[] = [];
+  todoList = this.todoFacade.allTodo$;
+
+  constructor(private todoFacade: TodoFacade) {
+    this.todoFacade.loadAllTodo();
+  }
 
   addTodo(data: Todo) {
-    this.todoList = this.todoList.concat(data);
+    this.todoFacade.addTodo(data);
   }
 
   removeTodo(id: string) {
-    this.todoList = this.todoList.filter(todo => todo.id !== id);
+    this.todoFacade.removeTodo(id);
   }
 }
 
