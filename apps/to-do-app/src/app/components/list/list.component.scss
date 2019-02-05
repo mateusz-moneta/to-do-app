@@ -1,0 +1,20 @@
+.action {
+  &-title {
+    font-weight: bold !important;
+  }
+
+  &-description {
+    font-style: italic;
+    margin: 10px 0px !important;
+  }
+
+  &-delete {
+    background-color: rgb(237,44,85);
+    color: white;
+    padding: 5px !important;
+  }
+}
+
+.mat-list-item {
+  margin: 10px 0px;
+}

@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Todo } from './interfaces/todo.interface';
 
 @Component({
   selector: 'to-do-app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent {
-  title = 'to-do-app';
+
+  todoList: Todo[] = [];
+
+  addTodo(data: Todo) {
+    this.todoList = this.todoList.concat(data);
+  }
+
+  removeTodo(id: string) {
+    this.todoList = this.todoList.filter(todo => todo.id !== id);
+  }
 }
+
