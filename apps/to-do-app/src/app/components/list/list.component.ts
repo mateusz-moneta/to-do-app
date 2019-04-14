@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../../interfaces/todo.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'to-do-app-list',
@@ -12,7 +13,7 @@ export class ListComponent {
   removeTodo = new EventEmitter<string>();
 
   @Input()
-  todoList: Todo[] = [];
+  todoList$: Observable<Todo[]>;
 
   onRemoveTodo(id: string): void {
     this.removeTodo.emit(id);

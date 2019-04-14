@@ -125,6 +125,37 @@
           }
         }
       }
+    },
+    "data-access-todo": {
+      "root": "libs/data-access-todo",
+      "sourceRoot": "libs/data-access-todo/src",
+      "projectType": "library",
+      "prefix": "to-do-app",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/data-access-todo/src/test.ts",
+            "tsConfig": "libs/data-access-todo/tsconfig.spec.json",
+            "karmaConfig": "libs/data-access-todo/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access-todo/tsconfig.lib.json",
+              "libs/data-access-todo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

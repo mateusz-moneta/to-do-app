@@ -13,6 +13,9 @@
     },
     "to-do-app-e2e": {
       "tags": []
+    },
+    "data-access-todo": {
+      "tags": []
     }
   }
 }

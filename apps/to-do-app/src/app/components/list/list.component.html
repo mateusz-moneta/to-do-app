@@ -1,5 +1,5 @@
 <mat-list>
-  <mat-list-item *ngFor="let todo of todoList">
+  <mat-list-item *ngFor="let todo of todoList$ | async">
     <h3 matLine class="action-title">{{ todo.title }}</h3>
     <h4 matLine class="action-description">{{ todo.description }}</h4>
     <button mat-icon-button (click)="onRemoveTodo(todo.id)">
