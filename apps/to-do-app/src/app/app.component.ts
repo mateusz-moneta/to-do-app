@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Todo } from './interfaces/todo.interface';
 import { TodoFacade } from '@to-do-app/data-access-todo';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'to-do-app-root',
@@ -9,7 +10,7 @@ import { TodoFacade } from '@to-do-app/data-access-todo';
 })
 export class AppComponent {
 
-  todoList = this.todoFacade.allTodo$;
+  todoList$: Observable<Todo[]> = this.todoFacade.allTodo$;
 
   constructor(private todoFacade: TodoFacade) {
     this.todoFacade.loadAllTodo();

@@ -1,5 +1,6 @@
-import { Entity, TodoState } from './todo.reducer';
+import { TodoState } from './todo.reducer';
 import { todoQuery } from './todo.selectors';
+import { Todo } from '../interfaces/todo.interface';
 
 describe('Todo Selectors', () => {
   const ERROR_MSG = 'No Error Available';
@@ -8,18 +9,18 @@ describe('Todo Selectors', () => {
   let storeState;
 
   beforeEach(() => {
-    const createTodo = (id: string, name = ''): Entity => ({
+    const createTodo = (description: string, id: string, title: string): Todo => ({
+      description,
       id,
-      name: name || `name-${id}`
+      title
     });
     storeState = {
       todo: {
         list: [
-          createTodo('PRODUCT-AAA'),
-          createTodo('PRODUCT-BBB'),
-          createTodo('PRODUCT-CCC')
+          createTodo('PRODUCT-AAA', '1', 'PRODUCT-AAA'),
+          createTodo('PRODUCT-BBB', '2', 'PRODUCT-BBB'),
+          createTodo('PRODUCT-CCC', '3', 'PRODUCT-CCC')
         ],
-        selectedId: 'PRODUCT-BBB',
         error: ERROR_MSG,
         loaded: true
       }
@@ -32,14 +33,8 @@ describe('Todo Selectors', () => {
       const selId = getTodoId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
-    });
-
-    it('getSelectedTodo() should return the selected Entity', () => {
-      const result = todoQuery.getSelectedTodo(storeState);
-      const selId = getTodoId(result);
-
-      expect(selId).toBe('PRODUCT-BBB');
+      console.log(selId);
+      expect(selId).toBe('2');
     });
 
     it("getLoaded() should return the current 'loaded' status", () => {

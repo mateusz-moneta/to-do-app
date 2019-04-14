@@ -9,8 +9,8 @@ import { Todo } from '../interfaces/todo.interface';
 
 @Injectable()
 export class TodoFacade {
-  allTodo$ = this.store.pipe(select(todoQuery.getAllTodo));
   loaded$ = this.store.pipe(select(todoQuery.getLoaded));
+  allTodo$ = this.store.pipe(select(todoQuery.getAllTodo));
 
   constructor(private store: Store<TodoPartialState>) {
   }
